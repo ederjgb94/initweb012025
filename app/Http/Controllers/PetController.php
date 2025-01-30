@@ -36,7 +36,7 @@ class PetController extends Controller
      */
     public function show(Pet $pet)
     {
-        //
+        return $pet;
     }
 
     /**
@@ -44,7 +44,13 @@ class PetController extends Controller
      */
     public function update(Request $request, Pet $pet)
     {
-        //
+        // $pet->name = $request->name;
+        // $pet->age = $request->age;
+        // $pet->save();
+
+        $pet->update($request->all());
+
+        return $pet;
     }
 
     /**
@@ -52,6 +58,8 @@ class PetController extends Controller
      */
     public function destroy(Pet $pet)
     {
-        //
+        $pet->delete();
+
+        return response()->json(['message' => 'Pet deleted']);
     }
 }
