@@ -21,6 +21,9 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::apiResource('pets', 'App\Http\Controllers\PetController');
+Route::get('/pets/{pet}/user', 'App\Http\Controllers\PetController@user');
+
+Route::post('/sales', 'App\Http\Controllers\SaleController@store');
 
 // Route::get('/pets', 'App\Http\Controllers\PetController@index');
 // Route::post('/pets', 'App\Http\Controllers\PetController@store');

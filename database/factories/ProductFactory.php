@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Pet>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Product>
  */
-class PetFactory extends Factory
+class ProductFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,9 +17,9 @@ class PetFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name,
-            'age' => $this->faker->numberBetween(1, 20),
-            'user_id' => $this->faker->numberBetween(1, 5)
+            'barcode' => $this->faker->unique()->ean13(),
+            'name' => $this->faker->name(),
+            'price' => $this->faker->randomFloat(2, 0, 1000),
         ];
     }
 }
